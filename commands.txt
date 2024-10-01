@@ -1,0 +1,11 @@
+$url = "https://10.200.158.150/paint.exe"
+
+# Dosyanın kaydedileceği klasör ve dosya ismi
+$outputFile = "C:\TebApp\paint"
+
+# 30 defa indirme işlemi
+for ($i = 1; $i -le 30; $i++) {
+    $filePath = "$outputFile-$i.exe"
+    Write-Host "İndiriliyor: $filePath"
+    Invoke-WebRequest -Uri $url -OutFile $filePath
+}
